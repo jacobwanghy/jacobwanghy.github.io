@@ -70,8 +70,13 @@
   .intro { font-size: 1.28rem; line-height: 1.5; max-width: 40ch; margin-bottom: 2.4rem; }
   .intro .n { font-weight: 600; }
 
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
-  .col.right { padding-left: 48px; border-left: 1px solid var(--rule); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; position: relative; }
+  .cols::before {
+    content: ""; position: absolute; left: 50%; top: 2%; bottom: 2%; width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, transparent, var(--rule) 22%, var(--rule) 78%, transparent);
+  }
+  .col.right { padding-left: 48px; }
 
   h2 {
     font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
@@ -101,7 +106,8 @@
     main { padding: 84px 26px 60px; }
     .intro { font-size: 1.18rem; }
     .cols { grid-template-columns: 1fr; gap: 2rem; }
-    .col.right { padding-left: 0; border-left: none; }
+    .col.right { padding-left: 0; }
+    .cols::before { display: none; }
     li { white-space: normal; }
   }
 </style>
