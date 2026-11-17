@@ -111,6 +111,12 @@
     .cols::before { display: none; }
     li { white-space: normal; }
   }
+
+  /* Touch devices (phones/tablets): no ambient design, just background + text */
+  @media (hover: none) and (pointer: coarse) {
+    body { background-image: none !important; }
+    .signal { display: none !important; }
+  }
 </style>
 </head>
 <body>
