@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jacob Wang</title>
+<meta name="description" content="Jacob Wang. Building Solvere. M&T (Wharton + CS) at Penn, by way of Singapore." />
+<meta property="og:title" content="Jacob Wang" />
+<meta property="og:description" content="Building Solvere. M&T at Penn, by way of Singapore." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg:     #f0f2ef;
+    --bg2:    #e8ece7;
+    --ink:    #181b18;
+    --muted:  #6a6e68;
+    --dot:    #d4d8d1;
+    --accent: #1f7a52;
+    --accent-soft: rgba(31,122,82,0.26);
+    --rule:   #dde1d9;
+    --maxw:   1140px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    min-height: 100vh; display: flex; align-items: flex-start;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(130% 80% at 85% 8%, rgba(31,122,82,0.07), transparent 46%),
+      radial-gradient(var(--dot) 1.2px, transparent 1.3px);
+    background-size: auto, 24px 24px;
+    background-position: center, -1px -1px;
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* layered signal motif at the base */
+  .signal {
+    position: fixed; left: 0; right: 0; bottom: 0; width: 100%;
+    height: 44vh; min-height: 220px; z-index: 0; pointer-events: none;
+    color: var(--accent);
+    mask-image: linear-gradient(to top, #000 0%, #000 38%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, #000 0%, #000 38%, transparent 100%);
+  }
+  .signal svg { width: 100%; height: 100%; display: block; }
+
+  main {
+    position: relative; z-index: 1;
+    width: 100%; max-width: var(--maxw); margin: 0 auto;
+    padding: clamp(84px, 15vh, 156px) 32px 48px;
+  }
+
+  .intro { font-size: 1.28rem; line-height: 1.5; max-width: 40ch; margin-bottom: 2.4rem; }
+  .intro .n { font-weight: 600; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+  .col.right { padding-left: 48px; border-left: 1px solid var(--rule); }
+
+  h2 {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 0.9rem;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  ul { list-style: none; }
+  li { font-size: 0.93rem; line-height: 1.3; margin: 0 0 0.66rem; white-space: nowrap; }
+  @media (max-width: 1180px) { li { white-space: normal; } }
+  li .t { font-weight: 500; }
+  .sub { color: var(--muted); }
+
+  a {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    transition: color .15s ease, border-color .15s ease;
+  }
+  a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .links { margin-top: 2.6rem; color: var(--muted); font-size: 0.98rem; }
+  .links a { border-bottom: none; }
+  .d { margin: 0 0.5rem; color: var(--rule); }
+
+  @media (max-width: 620px) {
+    body { font-size: 18px; align-items: flex-start; }
+    main { padding: 84px 26px 60px; }
+    .intro { font-size: 1.18rem; }
+    .cols { grid-template-columns: 1fr; gap: 2rem; }
+    .col.right { padding-left: 0; border-left: none; }
+    li { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="signal" aria-hidden="true">
+    <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" fill="none">
+      <defs>
+        <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="currentColor" stop-opacity="0.12" />
+          <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <!-- faint reference grid -->
+      <g stroke="currentColor" stroke-width="0.6" opacity="0.12">
+        <path d="M0 150 H1200" /><path d="M0 215 H1200" />
+        <path d="M250 60 V300" /><path d="M560 60 V300" /><path d="M870 60 V300" />
+      </g>
+      <!-- secondary, softer wave -->
+      <path d="M0 240 C 140 225, 220 180, 340 200 S 560 270, 700 225 S 920 150, 1060 195 S 1170 165, 1200 175"
+            stroke="currentColor" stroke-width="1.1" opacity="0.22" stroke-linecap="round" />
+      <!-- primary signal + area fill -->
+      <path d="M0 205 C 110 188, 165 120, 255 150 S 405 250, 505 200 S 645 92, 765 138 S 935 238, 1045 150 S 1155 100, 1200 128 L1200 300 L0 300 Z"
+            fill="url(#fill)" />
+      <path d="M0 205 C 110 188, 165 120, 255 150 S 405 250, 505 200 S 645 92, 765 138 S 935 238, 1045 150 S 1155 100, 1200 128"
+            stroke="currentColor" stroke-width="1.7" opacity="0.5" stroke-linecap="round" />
+      <!-- marked nodes -->
+      <circle cx="765" cy="138" r="4" fill="currentColor" opacity="0.8" />
+      <circle cx="765" cy="138" r="11" fill="none" stroke="currentColor" stroke-width="1" opacity="0.32" />
+      <circle cx="255" cy="150" r="3" fill="currentColor" opacity="0.55" />
+      <circle cx="1045" cy="150" r="3" fill="currentColor" opacity="0.55" />
+    </svg>
+  </div>
+
+  <main>
+    <p class="intro">
+      <span class="n">Hi, I'm Jacob.</span> I'm building
+      <a href="https://solvere.sg" target="_blank" rel="noopener">Solvere</a>, an AI-powered
+      platform that reimagines compliance training. M&amp;T student (Wharton + CS) at Penn, from Singapore.
+    </p>
+
+    <div class="cols">
+      <div class="col left">
+        <h2>Experience</h2>
+        <ul>
+          <li><span class="t"><a href="https://solvere.sg" target="_blank" rel="noopener">Solvere</a></span> <span class="sub">founder, 7-figure ARR &amp; angel-funded</span></li>
+          <li><span class="t">Dronaqua</span> <span class="sub">founder, built patented PFAS drones &amp; raised $30K in grants</span></li>
+          <li><span class="t">NUS</span> <span class="sub">researcher, built 160 years of U.S. macro data &amp; presented at NBER</span></li>
+          <li><span class="t">Dymon Asia</span> <span class="sub">quant researcher, systematic macro signals</span></li>
+          <li><span class="t">MIT</span> <span class="sub">researcher, backtested long-short strategies</span></li>
+          <li><span class="t">Tangent</span> <span class="sub">incubatee and fellow</span></li>
+          <li><span class="t">1752 VC</span> <span class="sub">venture fellow</span></li>
+        </ul>
+      </div>
+
+      <div class="col right">
+        <h2>Awards</h2>
+        <ul>
+          <li><span class="t">USAMO qualifier</span> <span class="sub">#1 in Asia AMC 12A</span></li>
+          <li><span class="t">NASA Conrad Finalist</span> <span class="sub">$1.1M+ in scholarships</span></li>
+          <li><span class="t">National Economics Challenge</span> <span class="sub">1st of 20,000</span></li>
+          <li><span class="t">BMO2 qualifier</span> <span class="sub">UKMT Senior perfect score</span></li>
+          <li><span class="t">Physics Bowl</span> <span class="sub">#3 in Asia</span></li>
+          <li><span class="t">Davis Scholar</span> <span class="sub">undergraduate scholarship</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="links">
+      <a href="mailto:jacob.wang@solvere.sg">Email</a>
+      <span class="d">·</span>
+      <a href="https://www.linkedin.com/in/jacobwanghy/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="d">·</span>
+      <a href="#" data-link="x" target="_blank" rel="noopener">X</a>
+      <span class="d">·</span>
+      <a href="https://github.com/jacobwanghy" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </main>
+
+</body>
+</html>
